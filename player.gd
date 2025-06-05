@@ -3,8 +3,28 @@ extends CharacterBody2D
 @export var SPEED = 50
 @export var ACCELERATION = 20.0
 @export var FRICTION = 10.0
+@onready var sprite = $AnimatedSprite2D
 
-
+func play_animation_direction():
+	var x = velocity.x
+	var y = velocity.y 
+	if x>0 and y <0:
+		sprite.play("Top_Right")
+	if x>0 and y == 0:
+		sprite.play("Right")
+	if x==0 and y> 0:
+		sprite.play("Down")
+	if x<0 and y <0:
+		sprite.play("Top_Left")
+	if x>0 and y >0:
+		sprite.play("Bottom_Right")
+	if x<0 and y >0:
+		sprite.play("Bottom_Left")
+	if x == 0 and y < 0:
+		sprite.play("Up")
+	if x < 0 and y == 0:
+		sprite.play("Left")
+		
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	#if not is_on_floor():
@@ -17,9 +37,12 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("Left", "Right", "Up", "Down").normalized()
+	print(direction)
 	if direction:
 		velocity = velocity.move_toward(direction * SPEED, ACCELERATION)
+		play_animation_direction()
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
+		$AnimatedSprite2D.play("Idle")
 
 	move_and_slide()
