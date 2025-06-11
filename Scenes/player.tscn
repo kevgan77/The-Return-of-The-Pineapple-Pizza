@@ -3,10 +3,6 @@
 [ext_resource type="Script" uid="uid://0bp0vq3quem8" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://6s33y7t8b822" path="res://Player_Sprite/Small-8-Direction-Characters_by_AxulArt.png" id="2_cvnsp"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
-radius = 8.0
-height = 20.0
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_x3wgy"]
 atlas = ExtResource("2_cvnsp")
 region = Rect2(80, 168, 16, 24)
@@ -230,15 +226,20 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
-script = ExtResource("1_onrkg")
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6t5aa"]
+radius = 7.0
+height = 14.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(58, 26)
-shape = SubResource("CapsuleShape2D_6t5aa")
+[node name="Player" type="CharacterBody2D"]
+z_as_relative = false
+script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(58, 23)
 scale = Vector2(1.18054, 1.01366)
 sprite_frames = SubResource("SpriteFrames_i3pqv")
 animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(57, 27)
+shape = SubResource("CapsuleShape2D_6t5aa")
