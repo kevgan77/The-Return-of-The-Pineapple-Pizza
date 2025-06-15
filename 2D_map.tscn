@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dons2cgok2heu"]
+[gd_scene load_steps=9 format=4 uid="uid://dons2cgok2heu"]
 
 [ext_resource type="Texture2D" uid="uid://dp54dlhublrji" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/22_Post_Office_16x16.png" id="1_fpkw3"]
 [ext_resource type="Texture2D" uid="uid://qbi6c3xa6y1g" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/2_City_Terrains_16x16.png" id="2_si6d8"]
@@ -4533,6 +4533,9 @@ sources/1 = SubResource("TileSetAtlasSource_nugwh")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_si6d8"]
 size = Vector2(128, 104)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_poswo"]
+size = Vector2(40, 53)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Buildings" type="TileMapLayer" parent="."]
@@ -4545,9 +4548,18 @@ tile_set = SubResource("TileSet_8io65")
 position = Vector2(-64, -148)
 shape = SubResource("RectangleShape2D_si6d8")
 
+[node name="Portal" type="Area2D" parent="Buildings"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Buildings/Portal"]
+position = Vector2(78, 62.5)
+shape = SubResource("RectangleShape2D_poswo")
+
 [node name="Player" parent="." instance=ExtResource("3_si6d8")]
 position = Vector2(-64, 28)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(54, 26)
 zoom = Vector2(2.58, 2.58)
+
+[connection signal="area_shape_entered" from="Buildings/Portal" to="Player" method="_on_portal_area_shape_entered"]
+[connection signal="body_entered" from="Buildings/Portal" to="Player" method="_on_portal_body_entered"]
