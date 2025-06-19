@@ -1,48 +1,42 @@
 extends CharacterBody2D
 
-var speed = 100
-var gravity = 800
-var chase_range = 200
-@onready var sprite = $Sprite2D
-#@onready var animation_player = $AnimationPlayer
-@onready var player = get_node("/root/Main/Player") # Adjust path to your player node
+@export var SPEED = 45  # Slightly slower than player
+@export var ACCELERATION = 15.0
+@export var FRICTION = 10.0
+@onready var sprite = $AnimatedSprite2D
+var player = null
 
-func _ready():
-	# Debug check for player reference
+func _ready() -> void:
+	player = get_tree().get_first_node_in_group("Player")
+
+func play_animation_direction():
+	var x = velocity.x
+	var y = velocity.y
+	
+	# Default to idle if no movement
+	sprite.play("Idle")
+	
+	# Play right animation and flip sprite based on direction
+	if x > 0:
+		sprite.play("Right")
+		sprite.flip_h = false  # Face right
+	elif x < 0:
+		sprite.play("Right")
+		sprite.flip_h = true   # Face left by flipping
+	elif y > 0:
+		sprite.play("Down")
+	elif y < 0:
+		sprite.play("Up")
+
+func _physics_process(delta: float) -> void:
 	if player:
-		print("Enemy found player at: ", player.global_position)
+		var direction = (player.global_position - global_position).normalized()
+		# Move towards player
+		velocity = velocity.lerp(direction * SPEED, ACCELERATION * delta)
+		play_animation_direction()
 	else:
-		print("Error: Player node not found! Check node path or scene setup.")
-
-func _physics_process(delta):
-	if not player:
-		return
-	
-	# Calculate direction and distance to player
-	var direction = (player.global_position - global_position).normalized()
-	var distance_to_player = global_position.distance_to(player.global_position)
-	
-	# Move toward player if within chase range
-	if distance_to_player <= chase_range:
-		velocity.x = direction.x * speed
-	else:
-		velocity.x = 0
-	
-	# Apply gravity
-	velocity.y += gravity * delta
-	move_and_slide()
-	
-	# Update animations
-	update_animations(direction.x)
-
-func update_animations(direction_x):
-	if not is_on_floor():
-		return # No animations while airborne
-	if direction_x > 0:
-		sprite.play("Run_Right")
-		sprite.scale.x = 1
-	elif direction_x < 0:
-		sprite.play("Run_Left")
-		sprite.scale.x = -1
-	else:
+		velocity = velocity.lerp(Vector2.ZERO, FRICTION * delta)
 		sprite.play("Idle")
+		print("Enemy: Player not found, idling")
+	
+	move_and_slide()

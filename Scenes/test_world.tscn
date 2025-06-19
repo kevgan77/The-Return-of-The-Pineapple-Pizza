@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://maphpwdoeen3"]
 
 [ext_resource type="PackedScene" uid="uid://m2b7m2jart4y" path="res://Scenes/player.tscn" id="1_skmq4"]
-[ext_resource type="PackedScene" uid="uid://bxwk78pvl0thn" path="res://Scenes/enemy.tscn" id="2_au00k"]
+[ext_resource type="PackedScene" uid="uid://cs7p7ll027wpa" path="res://Scenes/enemy.tscn" id="2_au00k"]
 
 [node name="Test_World" type="Node2D"]
 
@@ -13,6 +13,4 @@ position = Vector2(71, 52)
 zoom = Vector2(4.44, 4.44)
 
 [node name="Enemy" parent="." instance=ExtResource("2_au00k")]
-position = Vector2(14, 37)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(202, 25)

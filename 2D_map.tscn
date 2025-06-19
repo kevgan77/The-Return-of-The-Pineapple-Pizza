@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dp54dlhublrji" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/22_Post_Office_16x16.png" id="1_fpkw3"]
 [ext_resource type="Texture2D" uid="uid://qbi6c3xa6y1g" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/2_City_Terrains_16x16.png" id="2_si6d8"]
 [ext_resource type="PackedScene" uid="uid://m2b7m2jart4y" path="res://Scenes/player.tscn" id="3_si6d8"]
-[ext_resource type="PackedScene" uid="uid://bxwk78pvl0thn" path="res://Scenes/enemy.tscn" id="4_poswo"]
+[ext_resource type="PackedScene" uid="uid://cs7p7ll027wpa" path="res://Scenes/enemy.tscn" id="4_poswo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_poswo"]
 texture = ExtResource("1_fpkw3")
