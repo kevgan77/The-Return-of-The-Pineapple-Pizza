@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED = 50
+@export var SPRINT_MULTIPLIER = 1.5
 @export var ACCELERATION = 20.0
 @export var FRICTION = 10.0
 @onready var sprite = $AnimatedSprite2D
@@ -26,20 +27,16 @@ func play_animation_direction():
 		sprite.play("Left")
 		
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-
-	# Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_vector("Left", "Right", "Up", "Down").normalized()
-	print(direction)
+	
+	# Check if Shift is held for sprinting
+	var current_speed = SPEED
+	if Input.is_action_pressed("Sprint"):
+		current_speed *= SPRINT_MULTIPLIER
+	
 	if direction:
-		velocity = velocity.move_toward(direction * SPEED, ACCELERATION)
+		velocity = velocity.move_toward(direction * current_speed, ACCELERATION)
 		play_animation_direction()
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
