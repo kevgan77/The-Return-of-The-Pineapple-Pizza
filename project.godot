@@ -11,5 +11,6 @@ config_version=5
 [application]
 
 config/name="The_Return_of_The_Pineapple_Pizza"
+run/main_scene="uid://ggtsxdybuy0v"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
