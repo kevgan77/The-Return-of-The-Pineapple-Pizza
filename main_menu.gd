@@ -10,6 +10,7 @@ func _ready():
 # Functions to handle button presses
 func _on_start_button_pressed():
 	print("Start Button Pressed!")
+	get_tree().change_scene_to_file("res://real_map.tscn")
 
 func _on_option_button_pressed():
 	print("Option Button Pressed!")
