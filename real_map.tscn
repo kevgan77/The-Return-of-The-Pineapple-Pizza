@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://cto2av74ddg2k"]
+[gd_scene load_steps=54 format=4 uid="uid://dm5qffsieyuha"]
 
 [ext_resource type="Texture2D" uid="uid://caqdrm60cr372" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/1_Terrains_and_Fences_16x16.png" id="1_3cwds"]
 [ext_resource type="Texture2D" uid="uid://qbi6c3xa6y1g" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/2_City_Terrains_16x16.png" id="2_7wqvh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dehefig4a3oci" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/11_Camping_16x16.png" id="9_l12ym"]
 [ext_resource type="PackedScene" uid="uid://m2b7m2jart4y" path="res://Scenes/player.tscn" id="11_feutt"]
 [ext_resource type="Texture2D" uid="uid://b65uswnpscoyl" path="res://Collision.png" id="12_ul3q5"]
+[ext_resource type="PackedScene" uid="uid://cs7p7ll027wpa" path="res://Scenes/enemy.tscn" id="13_yq1kh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7xds"]
 texture = ExtResource("6_wdjtx")
@@ -73662,3 +73663,9 @@ one_way_collision = true
 position = Vector2(1964.25, 584)
 shape = SubResource("RectangleShape2D_kw42n")
 one_way_collision = true
+
+[node name="Enemy" parent="." instance=ExtResource("13_yq1kh")]
+position = Vector2(128, -65)
+
+[node name="Enemy2" parent="." instance=ExtResource("13_yq1kh")]
+position = Vector2(246, -35)
