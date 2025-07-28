@@ -1,6 +1,11 @@
-[gd_scene load_steps=0 format=3 uid="uid://dfl428agmvkv8"]
+[gd_scene load_steps=2 format=3 uid="uid://dfl428agmvkv8"]
 
-[node name="PinCodeUI" type="Control"]
+[ext_resource type="Script" uid="uid://qrrwsu014hbh" path="res://Scenes/pin_code_ui.gd" id="1_q5k7m"]
+
+[node name="PinCodeUI" type="CanvasLayer"]
+script = ExtResource("1_q5k7m")
+
+[node name="FullScreenContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -8,28 +13,127 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PinDisplay" type="Label" parent="."]
-layout_mode = 0
-offset_left = 143.0
-offset_top = 56.0
-offset_right = 217.0
-offset_bottom = 157.0
-text = "1     2      3
-4     5      6
-7     8      9
-       0"
+[node name="PinPanel" type="Panel" parent="FullScreenContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -200.0
+offset_right = 150.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="."]
-modulate = Color(0, 0, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 59.0
-offset_top = 7.0
-offset_right = 293.0
-offset_bottom = 206.0
-columns = 10
+[node name="MainLayout" type="VBoxContainer" parent="FullScreenContainer/PinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Feedback" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="TitleLabel" type="Label" parent="FullScreenContainer/PinPanel/MainLayout"]
+layout_mode = 2
+text = "ENTER PIN CODE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PinDisplay" type="Label" parent="FullScreenContainer/PinPanel/MainLayout"]
+layout_mode = 2
+text = "○ ○ ○ ○"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NumberGrid" type="GridContainer" parent="FullScreenContainer/PinPanel/MainLayout"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 3
+
+[node name="Button1" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "1"
+
+[node name="Button2" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "2"
+
+[node name="Button3" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "3"
+
+[node name="Button4" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "4"
+
+[node name="Button5" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "5"
+
+[node name="Button6" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "6"
+
+[node name="Button7" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "7"
+
+[node name="Button8" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "8"
+
+[node name="Button9" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "9"
+
+[node name="ClearButton" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "CLEAR"
+
+[node name="Button0" type="Button" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "0"
+
+[node name="EmptySlot" type="Control" parent="FullScreenContainer/PinPanel/MainLayout/NumberGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="FeedbackLabel" type="Label" parent="FullScreenContainer/PinPanel/MainLayout"]
+layout_mode = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="FullScreenContainer/PinPanel/MainLayout"]
+layout_mode = 2
+text = "CLOSE"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -6,6 +6,9 @@ extends CharacterBody2D
 @export var FRICTION = 10.0
 @onready var sprite = $AnimatedSprite2D
 
+func _ready():
+	add_to_group("Player")
+
 func play_animation_direction():
 	var x = velocity.x
 	var y = velocity.y 
