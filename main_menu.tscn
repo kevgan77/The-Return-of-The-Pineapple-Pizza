@@ -1,6 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://ggtsxdybuy0v"]
+[gd_scene load_steps=10 format=3 uid="uid://ggtsxdybuy0v"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_06t4h"]
+[ext_resource type="Texture2D" uid="uid://ne3o4brlfkvl" path="res://ModernExteriors/ModernExteriior/Untitled.png" id="2_7vrkn"]
+[ext_resource type="Texture2D" uid="uid://cxvu0dya2f31g" path="res://ModernExteriors/pizza-slice-pixel-art-icon-260nw-2148879111.png" id="2_fu7sn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_jix8l"]
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fu7sn"]
 
@@ -47,6 +64,14 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_06t4h")
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = -571.0
+offset_top = -327.0
+offset_right = 578.0
+offset_bottom = 334.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7vrkn")
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(220.68, 0)
 layout_mode = 1
@@ -69,6 +94,7 @@ theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_jix8l")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
@@ -102,11 +128,13 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_jix8l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 text = "Exit"
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = -570.0
-offset_top = -327.0
-offset_right = 579.0
-offset_bottom = 334.0
+[node name="Pizza-slice-pixel-art-icon-260Nw-2148879111" type="Sprite2D" parent="VBoxContainer"]
+position = Vector2(103.34, -73.5)
+scale = Vector2(0.961538, 0.820536)
+texture = ExtResource("2_fu7sn")
+
+[node name="Untitled" type="Sprite2D" parent="."]
+position = Vector2(-116, -198)
+texture = ExtResource("2_7vrkn")
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
