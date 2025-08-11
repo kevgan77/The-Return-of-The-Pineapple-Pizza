@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://ggtsxdybuy0v"]
+[gd_scene load_steps=9 format=3 uid="uid://ggtsxdybuy0v"]
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Texture2D" uid="uid://ne3o4brlfkvl" path="res://ModernExteriors/ModernExteriior/Untitled.png" id="2_7vrkn"]
-[ext_resource type="Texture2D" uid="uid://cxvu0dya2f31g" path="res://ModernExteriors/pizza-slice-pixel-art-icon-260nw-2148879111.png" id="2_fu7sn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7vrkn"]
 bg_color = Color(0, 0, 0, 1)
@@ -127,11 +126,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jix8l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
 text = "Exit"
-
-[node name="Pizza-slice-pixel-art-icon-260Nw-2148879111" type="Sprite2D" parent="VBoxContainer"]
-position = Vector2(103.34, -73.5)
-scale = Vector2(0.961538, 0.820536)
-texture = ExtResource("2_fu7sn")
 
 [node name="Untitled" type="Sprite2D" parent="."]
 position = Vector2(-116, -198)

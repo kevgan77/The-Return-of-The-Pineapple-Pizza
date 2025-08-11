@@ -234,6 +234,14 @@ height = 14.0
 z_as_relative = false
 script = ExtResource("1_onrkg")
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2.58, 2.58)
+limit_left = -170
+limit_top = -690
+limit_right = 2834
+limit_bottom = 618
+position_smoothing_enabled = true
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
 scale = Vector2(1.18054, 1.01366)
@@ -243,11 +251,3 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_6t5aa")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2.1, 2.1)
-limit_left = -170
-limit_top = -690
-limit_right = 2834
-limit_bottom = 618
-position_smoothing_enabled = true

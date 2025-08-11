@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=4 uid="uid://cto2av74ddg2k"]
+[gd_scene load_steps=74 format=4 uid="uid://cto2av74ddg2k"]
 
 [ext_resource type="Texture2D" uid="uid://caqdrm60cr372" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/1_Terrains_and_Fences_16x16.png" id="1_3cwds"]
 [ext_resource type="Texture2D" uid="uid://qbi6c3xa6y1g" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/2_City_Terrains_16x16.png" id="2_7wqvh"]
@@ -108261,6 +108261,9 @@ size = Vector2(2802, 33)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7md8p"]
 size = Vector2(1436, 71)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7xds"]
+size = Vector2(20, 38)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="Road" type="TileMapLayer" parent="."]
@@ -108338,3 +108341,11 @@ position = Vector2(169, -215)
 
 [node name="Enemy2" parent="." instance=ExtResource("21_c1k7n")]
 position = Vector2(-33, -228)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(728, -192)
+shape = SubResource("RectangleShape2D_r7xds")
+
+[connection signal="body_entered" from="Area2D" to="Player" method="_on_area_2d_body_entered"]
