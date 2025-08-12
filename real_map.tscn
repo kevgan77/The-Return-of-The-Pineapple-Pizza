@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=4 uid="uid://cto2av74ddg2k"]
+[gd_scene load_steps=77 format=4 uid="uid://cto2av74ddg2k"]
 
 [ext_resource type="Texture2D" uid="uid://caqdrm60cr372" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/1_Terrains_and_Fences_16x16.png" id="1_3cwds"]
 [ext_resource type="Texture2D" uid="uid://qbi6c3xa6y1g" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/2_City_Terrains_16x16.png" id="2_7wqvh"]
@@ -21,7 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://b65uswnpscoyl" path="res://Collision.png" id="12_ul3q5"]
 [ext_resource type="Texture2D" uid="uid://cqemgfmwf7ss5" path="res://ModernExteriors/ModernExteriior/ME_Theme_Sorter_16x16/21_Beach_16x16.png" id="13_oiu2c"]
 [ext_resource type="Texture2D" uid="uid://dxh8grgjkfdex" path="res://Super_Retro_World_Interior_pack_week42/atlas_16x.png" id="19_r7xds"]
+[ext_resource type="PackedScene" uid="uid://b73q6g574gl60" path="res://hint_area.tscn" id="21_bfocy"]
 [ext_resource type="PackedScene" uid="uid://cs7p7ll027wpa" path="res://Scenes/enemy.tscn" id="21_c1k7n"]
+[ext_resource type="Texture2D" uid="uid://cs8pgbnmb5fgk" path="res://icon.svg" id="22_bjqrs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7xds"]
 texture = ExtResource("6_wdjtx")
@@ -108238,6 +108240,9 @@ sources/0 = SubResource("TileSetAtlasSource_wdjtx")
 sources/1 = SubResource("TileSetAtlasSource_1s7e3")
 sources/2 = SubResource("TileSetAtlasSource_hoto2")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aij5p"]
+radius = 129.869
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bjqrs"]
 texture = ExtResource("12_ul3q5")
 0:0/0 = 0
@@ -108301,6 +108306,19 @@ tile_set = SubResource("TileSet_sskrs")
 [node name="Player" parent="." instance=ExtResource("11_feutt")]
 position = Vector2(15, -301)
 
+[node name="hint_area" parent="." instance=ExtResource("21_bfocy")]
+visible = false
+position = Vector2(228, -165)
+
+[node name="Sprite2D2" type="Sprite2D" parent="hint_area"]
+position = Vector2(5, -2.00001)
+scale = Vector2(0.398438, 0.425781)
+texture = ExtResource("22_bjqrs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hint_area"]
+position = Vector2(-4, 1)
+shape = SubResource("CircleShape2D_aij5p")
+
 [node name="Collisions" type="TileMapLayer" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.243137)
@@ -108337,7 +108355,7 @@ shape = SubResource("RectangleShape2D_7md8p")
 one_way_collision = true
 
 [node name="Enemy" parent="." instance=ExtResource("21_c1k7n")]
-position = Vector2(169, -215)
+position = Vector2(121, -210)
 
 [node name="Enemy2" parent="." instance=ExtResource("21_c1k7n")]
 position = Vector2(-33, -228)

@@ -55,3 +55,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://interior1.tscn")
 		
+
+
+
+func _on_return_back_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://real_map.tscn")
+	

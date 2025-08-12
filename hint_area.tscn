@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b73q6g574gl60"]
+
+[ext_resource type="Script" uid="uid://dnp1muocbyv6s" path="res://area_2d.gd" id="1_ydys4"]
+
+[node name="hint_area" type="Area2D"]
+script = ExtResource("1_ydys4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
