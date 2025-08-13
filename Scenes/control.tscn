@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://cw284yi72kct1"]
+
+[ext_resource type="Script" path="res://control.gd" id="1_sjmnu"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sjmnu")
+
+[node name="HPBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 684.0
+offset_top = 6.0
+offset_right = 1153.0
+offset_bottom = 33.0
+
+[node name="Label" type="Label" parent="HPBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
