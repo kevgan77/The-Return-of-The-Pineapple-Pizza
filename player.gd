@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var FRICTION = 15.0
 @onready var sprite = $AnimatedSprite2D
 
+
 func play_animation_direction():
 	var x = velocity.x
 	var y = velocity.y 
@@ -62,3 +63,19 @@ func _on_return_back_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://real_map.tscn")
 	
+
+@onready var inventory_ui = $UI/InventoryUI  
+
+func add_to_inventory(item_id: String, amount: int = 1):
+	var item_data = ItemDatabase.get_item(item_id)
+	if item_data:
+		var remaining = inventory_ui.add_item(item_data, amount)
+		if remaining > 0:
+			print("Could not fit all items. ", remaining, " items dropped.")
+		else:
+			print("Added ", amount, " ", item_data.name, " to inventory")
+
+# 
+#func _input(event):
+#	if event.is_action_pressed("toggle_inventory"):  
+#		inventory_ui.visible = !inventory_ui.visible
