@@ -4979,12 +4979,14 @@ tile_set = SubResource("TileSet_b6ope")
 position = Vector2(353, 174)
 
 [node name="return_back" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="return_back"]
 position = Vector2(352, 206)
 shape = SubResource("RectangleShape2D_v0rmk")
 
 [node name="pizza1" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pizza1"]
 position = Vector2(405, 119)
