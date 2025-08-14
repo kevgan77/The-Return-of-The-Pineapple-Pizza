@@ -4977,10 +4977,6 @@ tile_set = SubResource("TileSet_b6ope")
 
 [node name="Player" parent="." instance=ExtResource("3_0ydgs")]
 position = Vector2(353, 174)
-SPEED = null
-SPRINT_MULTIPLIER = null
-ACCELERATION = null
-FRICTION = null
 
 [node name="return_back" type="Area2D" parent="."]
 visible = false
