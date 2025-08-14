@@ -246,7 +246,7 @@ position_smoothing_enabled = true
 position = Vector2(0, -4)
 scale = Vector2(1.18054, 1.01366)
 sprite_frames = SubResource("SpriteFrames_i3pqv")
-animation = &"Idle"
+animation = &"Bottom_Left"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
