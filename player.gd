@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-@export var SPEED = 50
-@export var SPRINT_MULTIPLIER = 1.5
-@export var ACCELERATION = 20.0
-@export var FRICTION = 10.0
+@export var SPEED = 130
+@export var SPRINT_MULTIPLIER = 2.0
+@export var ACCELERATION = 10
+@export var FRICTION = 15.0
 @onready var sprite = $AnimatedSprite2D
 
 func play_animation_direction():
@@ -48,3 +48,17 @@ func _physics_process(delta: float) -> void:
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Scenes/test_world.tscn")
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://interior1.tscn")
+		
+
+
+
+func _on_return_back_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		get_tree().change_scene_to_file("res://real_map.tscn")
+	

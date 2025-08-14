@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var SPEED = 35  # Slightly slower than player
-@export var ACCELERATION = 15.0
+@export var SPEED = 20  # Slightly slower than player
+@export var ACCELERATION = 14.0
 @export var FRICTION = 10.0
 @onready var sprite = $AnimatedSprite2D
 var player = null
