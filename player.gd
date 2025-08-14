@@ -6,8 +6,15 @@ extends CharacterBody2D
 @export var FRICTION = 15.0
 @onready var sprite = $AnimatedSprite2D
 
+@export var max_health = 100  # Allows tweaking max health in the Inspector
+var health = max_health
+signal health_changed(new_health)  # Signal to notify health bar of changes
+
 func _ready():
 	add_to_group("Player")
+	# Initialize health
+	health = max_health  # Ensure health starts at max_health
+	emit_signal("health_changed", health)  # Notify health bar on start
 
 func play_animation_direction():
 	var x = velocity.x
@@ -46,7 +53,14 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("Idle")
 
 	move_and_slide()
+	if Input.is_action_just_pressed("ui_accept"):
+		take_damage(10)
 
+func take_damage(amount):
+	health = max(0, health - amount)
+	emit_signal("health_changed", health)
+	if health <= 0:
+		queue_free()
 
 func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
