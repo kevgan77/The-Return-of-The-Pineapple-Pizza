@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1mv5ucd10583"]
+[gd_scene load_steps=2 format=3 uid="uid://d07v57rn2s5ro"]
 
-[ext_resource type="Script" uid="uid://bnf5csfq1l6ho" path="res://health_bar_ui.gd" id="1_jgl13"]
+[ext_resource type="Script" path="res://health_bar_ui.gd" id="1_jgl13"]
 
 [node name="HealthBarUI" type="CanvasLayer"]
 script = ExtResource("1_jgl13")
