@@ -53,8 +53,9 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("Idle")
 
 	move_and_slide()
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("Damage"):
 		take_damage(10)
+		print("taking damage")
 
 func take_damage(amount):
 	health = max(0, health - amount)
@@ -66,7 +67,10 @@ func _on_portal_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		get_tree().change_scene_to_file("res://Scenes/test_world.tscn")
 
-
+func enemy_checker(enemy):
+	if enemy.is_in_group("Enemy"):
+		take_damage(5)
+		print("Damage")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
