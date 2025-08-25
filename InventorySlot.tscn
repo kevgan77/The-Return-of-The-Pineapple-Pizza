@@ -8,15 +8,24 @@ offset_bottom = 40.0
 
 [node name="Background" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1148.0
+offset_bottom = 642.0
 
 [node name="ItemIcon" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 5.603
+anchor_top = 2.29
+anchor_right = 5.603
+anchor_bottom = 2.29
+offset_left = -224.12
+offset_top = -91.6
+offset_right = -184.12
+offset_bottom = -51.6
 
 [node name="StackLabel" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 11.0
+offset_top = 7.0
+offset_right = 1145.0
+offset_bottom = 643.0

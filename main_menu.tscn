@@ -99,7 +99,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_fu7sn")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fu7sn")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jix8l")
 theme_override_styles/normal = SubResource("StyleBoxFlat_rhts7")
-text = "Start game"
+text = "Start"
 
 [node name="Option" type="Button" parent="VBoxContainer"]
 layout_mode = 2
