@@ -1,11 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://b73q6g574gl60"]
+[gd_scene load_steps=3 format=3 uid="uid://b73q6g574gl60"]
 
 [ext_resource type="Script" uid="uid://dnp1muocbyv6s" path="res://area_2d.gd" id="1_ydys4"]
 
-[node name="hint_area" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ydys4"]
+
+[node name="hint_area" type="Area2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_ydys4")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ydys4")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

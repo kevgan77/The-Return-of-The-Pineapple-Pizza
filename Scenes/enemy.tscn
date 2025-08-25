@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cs7p7ll027wpa"]
+[gd_scene load_steps=44 format=3 uid="uid://cs7p7ll027wpa"]
 
 [ext_resource type="Script" uid="uid://qkg6tcujgqwq" path="res://enemy.gd" id="1_1f0kj"]
 [ext_resource type="Texture2D" uid="uid://cxiiawlb4jop0" path="res://Player_Sprite/idle.png" id="2_287tu"]
@@ -6,8 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bgrf6y0ok05y2" path="res://Player_Sprite/walk.png" id="2_afpow"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_287tu"]
-radius = 5.0
-height = 14.0
+radius = 3.0
+height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tk7xo"]
 atlas = ExtResource("2_0830c")
@@ -309,10 +309,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0830c"]
+radius = 5.0
+height = 14.0
+
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_1f0kj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Enemy"]]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_287tu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -320,3 +325,8 @@ sprite_frames = SubResource("SpriteFrames_ta2yt")
 animation = &"Idle"
 autoplay = "Idle"
 flip_h = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_0830c")
