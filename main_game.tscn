@@ -1,0 +1,100 @@
+[gd_scene load_steps=5 format=3 uid="uid://dr1ehlh4dhovh"]
+
+[ext_resource type="Script" uid="uid://c516k00li2vrr" path="res://main_game.gd" id="1_6bm6p"]
+[ext_resource type="Script" uid="uid://dccld2yyduajw" path="res://pixel_screen.gd" id="2_dugkq"]
+[ext_resource type="Script" uid="uid://fu6hw320hs52" path="res://PizzaScreen.gd" id="3_2pltu"]
+[ext_resource type="Script" uid="uid://bkl1f6jrhwv4f" path="res://PizzaCookingAnimation.gd" id="4_f52ns"]
+
+[node name="MainGame" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_6bm6p")
+
+[node name="StyleToggleButton" type="Button" parent="."]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="PixelScreen" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_dugkq")
+
+[node name="Background" type="TextureRect" parent="PixelScreen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Character" type="TextureRect" parent="PixelScreen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Trees" type="Node2D" parent="PixelScreen"]
+
+[node name="Trees1" type="TextureRect" parent="PixelScreen/Trees"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Trees2" type="TextureRect" parent="PixelScreen/Trees"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Trees3" type="TextureRect" parent="PixelScreen/Trees"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PixelScreen"]
+
+[node name="PizzaScreen" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_2pltu")
+
+[node name="Background" type="TextureRect" parent="PizzaScreen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PizzaOven" type="Control" parent="PizzaScreen"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OvenSprite" type="TextureRect" parent="PizzaScreen/PizzaOven"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FlameAnimation" type="AnimationPlayer" parent="PizzaScreen/PizzaOven"]
+
+[node name="PizzaSprite" type="TextureRect" parent="PizzaScreen/PizzaOven"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("4_f52ns")
+
+[node name="CookingAnimation" type="AnimationPlayer" parent="PizzaScreen/PizzaOven/PizzaSprite"]
+root_node = NodePath("../../../..")
+
+[node name="ControlButtons" type="VBoxContainer" parent="PizzaScreen"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CookButton" type="Button" parent="PizzaScreen/ControlButtons"]
+layout_mode = 2
+
+[node name="TakeoutButton" type="Button" parent="PizzaScreen/ControlButtons"]
+layout_mode = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="PizzaScreen"]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="CookingTimer" type="Timer" parent="PizzaScreen"]
