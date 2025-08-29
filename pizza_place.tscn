@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dctovw833dicb"]
+
+[ext_resource type="Script" uid="uid://c2f0u68lgiaey" path="res://PizzaOvenInteractable.gd" id="1_0td54"]
+[ext_resource type="PackedScene" uid="uid://m2b7m2jart4y" path="res://Scenes/player.tscn" id="2_iuipn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iuipn"]
+radius = 51.9711
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+
+[node name="PizzaOvenInteractable" type="Area2D" parent="."]
+script = ExtResource("1_0td54")
+
+[node name="Player" parent="PizzaOvenInteractable" instance=ExtResource("2_iuipn")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PizzaOvenInteractable"]
+position = Vector2(107, -2)
+shape = SubResource("CircleShape2D_iuipn")
+
+[node name="InteractionPrompt" type="Label" parent="PizzaOvenInteractable"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[connection signal="area_entered" from="PizzaOvenInteractable" to="PizzaOvenInteractable" method="_on_area_entered"]
+[connection signal="body_entered" from="PizzaOvenInteractable" to="PizzaOvenInteractable" method="_on_body_entered"]

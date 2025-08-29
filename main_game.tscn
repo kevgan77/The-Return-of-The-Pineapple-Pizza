@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://dr1ehlh4dhovh"]
 
-[ext_resource type="Script" uid="uid://c516k00li2vrr" path="res://main_game.gd" id="1_6bm6p"]
-[ext_resource type="Script" uid="uid://dccld2yyduajw" path="res://pixel_screen.gd" id="2_dugkq"]
+[ext_resource type="Script" uid="uid://cbtsfjhxuu21l" path="res://main_game.gd" id="1_6bm6p"]
+[ext_resource type="Script" uid="uid://dubnlupt0s0bd" path="res://pixel_screen.gd" id="2_dugkq"]
 [ext_resource type="Script" uid="uid://fu6hw320hs52" path="res://PizzaScreen.gd" id="3_2pltu"]
 [ext_resource type="Texture2D" uid="uid://k3x54f5nssox" path="res://HD-wallpaper-artistic-pixel-art-windows-xp-landscape.jpg" id="3_4srsv"]
 [ext_resource type="Script" uid="uid://bkl1f6jrhwv4f" path="res://PizzaCookingAnimation.gd" id="4_f52ns"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bh14bgse51752" path="res://light-brown-color-solid-background-1920x1080.png" id="7_aomqu"]
 [ext_resource type="Texture2D" uid="uid://de5rouvxkni5r" path="res://New Piskel-1.png.png" id="8_krmtw"]
 
-[node name="MainGame" type="Control"]
+[node name="main_game" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
